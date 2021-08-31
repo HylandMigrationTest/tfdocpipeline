@@ -1,0 +1,49 @@
+version: ""
+formatter: "markdown table"
+sections:
+  show:
+    - requirements
+    - modules
+    - providers
+    - inputs
+    - outputs
+    - resources
+
+content: |-
+  {{ .Header }}
+
+  {{ .Requirements }}
+
+  {{ .Modules }}
+
+  {{ .Providers }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
+  
+  {{ .Resources }}
+
+output:
+  file: "tf.md"
+  mode: "replace"
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->  
+
+sort:
+  enabled: true
+  by: name
+
+settings:
+  anchor: true
+  color: true
+  default: true
+  description: false
+  escape: true
+  html: false
+  indent: 2
+  required: true
+  sensitive: true
+  type: true
